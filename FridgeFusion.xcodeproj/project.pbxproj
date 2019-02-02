@@ -14,6 +14,9 @@
 		32F57C5B2205560D0024E0BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F57C592205560D0024E0BB /* LaunchScreen.storyboard */; };
 		32F57C662205560D0024E0BB /* FridgeFusionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C652205560D0024E0BB /* FridgeFusionTests.swift */; };
 		32F57C712205560D0024E0BB /* FridgeFusionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C702205560D0024E0BB /* FridgeFusionUITests.swift */; };
+		B38CEDE80258503E335A28B1 /* Pods_FridgeFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */; };
+		E590596F220650ED000C8089 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590596E220650ED000C8089 /* Food.swift */; };
+		E59059712206536F000C8089 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59059702206536F000C8089 /* HistoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,11 @@
 		32F57C6C2205560D0024E0BB /* FridgeFusionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgeFusionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F57C702205560D0024E0BB /* FridgeFusionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeFusionUITests.swift; sourceTree = "<group>"; };
 		32F57C722205560D0024E0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		419B0436E68471ECE9C76649 /* Pods-FridgeFusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeFusion.release.xcconfig"; path = "Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion.release.xcconfig"; sourceTree = "<group>"; };
+		B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E590596E220650ED000C8089 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		E59059702206536F000C8089 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		EBC387E7A6A8A8D9679CA705 /* Pods-FridgeFusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeFusion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B38CEDE80258503E335A28B1 /* Pods_FridgeFusion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,8 @@
 				32F57C642205560D0024E0BB /* FridgeFusionTests */,
 				32F57C6F2205560D0024E0BB /* FridgeFusionUITests */,
 				32F57C4E2205560A0024E0BB /* Products */,
+				5F87DE334860B1DE042F35CD /* Pods */,
+				AA75A4E65FE71EC1F3140854 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +110,8 @@
 			children = (
 				32F57C502205560A0024E0BB /* AppDelegate.swift */,
 				32F57C522205560A0024E0BB /* ViewController.swift */,
+				E590596E220650ED000C8089 /* Food.swift */,
+				E59059702206536F000C8089 /* HistoryCell.swift */,
 				32F57C542205560A0024E0BB /* Main.storyboard */,
 				32F57C572205560D0024E0BB /* Assets.xcassets */,
 				32F57C592205560D0024E0BB /* LaunchScreen.storyboard */,
@@ -125,6 +138,23 @@
 			path = FridgeFusionUITests;
 			sourceTree = "<group>";
 		};
+		5F87DE334860B1DE042F35CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBC387E7A6A8A8D9679CA705 /* Pods-FridgeFusion.debug.xcconfig */,
+				419B0436E68471ECE9C76649 /* Pods-FridgeFusion.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA75A4E65FE71EC1F3140854 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32F57C752205560D0024E0BB /* Build configuration list for PBXNativeTarget "FridgeFusion" */;
 			buildPhases = (
+				4851B0AA44D1E9D80C66252C /* [CP] Check Pods Manifest.lock */,
 				32F57C492205560A0024E0BB /* Sources */,
 				32F57C4A2205560A0024E0BB /* Frameworks */,
 				32F57C4B2205560A0024E0BB /* Resources */,
+				E6CEA41EA16EDA46E50D4342 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,13 +225,16 @@
 				TargetAttributes = {
 					32F57C4C2205560A0024E0BB = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 					32F57C602205560D0024E0BB = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 32F57C4C2205560A0024E0BB;
 					};
 					32F57C6B2205560D0024E0BB = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 32F57C4C2205560A0024E0BB;
 					};
 				};
@@ -251,6 +286,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4851B0AA44D1E9D80C66252C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FridgeFusion-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6CEA41EA16EDA46E50D4342 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		32F57C492205560A0024E0BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,6 +344,8 @@
 			files = (
 				32F57C532205560A0024E0BB /* ViewController.swift in Sources */,
 				32F57C512205560A0024E0BB /* AppDelegate.swift in Sources */,
+				E59059712206536F000C8089 /* HistoryCell.swift in Sources */,
+				E590596F220650ED000C8089 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,14 +510,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		32F57C762205560D0024E0BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBC387E7A6A8A8D9679CA705 /* Pods-FridgeFusion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -445,6 +533,7 @@
 		};
 		32F57C772205560D0024E0BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 419B0436E68471ECE9C76649 /* Pods-FridgeFusion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
