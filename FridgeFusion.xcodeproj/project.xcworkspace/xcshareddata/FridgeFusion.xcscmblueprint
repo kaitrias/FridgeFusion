@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "44B182E2A982AE3E724E0F2B68F9357D8FC98525",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "44B182E2A982AE3E724E0F2B68F9357D8FC98525" : 0,
+    "D964F3AF686D698BEFD887E306CAF232FE93CA17" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "936D65E3-0D5E-422D-A18D-3735952F804D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "44B182E2A982AE3E724E0F2B68F9357D8FC98525" : "FridgeFusion\/",
+    "D964F3AF686D698BEFD887E306CAF232FE93CA17" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FridgeFusion",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FridgeFusion.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kaitrias\/FridgeFusion.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "44B182E2A982AE3E724E0F2B68F9357D8FC98525"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SkyborneVeggies\/Password-Manager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D964F3AF686D698BEFD887E306CAF232FE93CA17"
+    }
+  ]
+}
