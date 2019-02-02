@@ -17,6 +17,8 @@
 		B38CEDE80258503E335A28B1 /* Pods_FridgeFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */; };
 		E590596F220650ED000C8089 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590596E220650ED000C8089 /* Food.swift */; };
 		E59059712206536F000C8089 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59059702206536F000C8089 /* HistoryCell.swift */; };
+		E590597522065FF3000C8089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590597422065FF3000C8089 /* Recipe.swift */; };
+		E590597722066185000C8089 /* defaultphoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E590597622066185000C8089 /* defaultphoto.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E590596E220650ED000C8089 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		E59059702206536F000C8089 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		E590597422065FF3000C8089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		E590597622066185000C8089 /* defaultphoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultphoto.jpg; sourceTree = "<group>"; };
 		EBC387E7A6A8A8D9679CA705 /* Pods-FridgeFusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeFusion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +112,7 @@
 		32F57C4F2205560A0024E0BB /* FridgeFusion */ = {
 			isa = PBXGroup;
 			children = (
+				E590597622066185000C8089 /* defaultphoto.jpg */,
 				32F57C502205560A0024E0BB /* AppDelegate.swift */,
 				32F57C522205560A0024E0BB /* ViewController.swift */,
 				E590596E220650ED000C8089 /* Food.swift */,
@@ -116,6 +121,7 @@
 				32F57C572205560D0024E0BB /* Assets.xcassets */,
 				32F57C592205560D0024E0BB /* LaunchScreen.storyboard */,
 				32F57C5C2205560D0024E0BB /* Info.plist */,
+				E590597422065FF3000C8089 /* Recipe.swift */,
 			);
 			path = FridgeFusion;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			files = (
 				32F57C5B2205560D0024E0BB /* LaunchScreen.storyboard in Resources */,
 				32F57C582205560D0024E0BB /* Assets.xcassets in Resources */,
+				E590597722066185000C8089 /* defaultphoto.jpg in Resources */,
 				32F57C562205560A0024E0BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +353,7 @@
 				32F57C512205560A0024E0BB /* AppDelegate.swift in Sources */,
 				E59059712206536F000C8089 /* HistoryCell.swift in Sources */,
 				E590596F220650ED000C8089 /* Food.swift in Sources */,
+				E590597522065FF3000C8089 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
