@@ -19,6 +19,8 @@
 		E59059712206536F000C8089 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59059702206536F000C8089 /* HistoryCell.swift */; };
 		E590597522065FF3000C8089 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590597422065FF3000C8089 /* Recipe.swift */; };
 		E590597722066185000C8089 /* defaultphoto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E590597622066185000C8089 /* defaultphoto.jpg */; };
+		E590597922068FD4000C8089 /* fridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E590597822068FD4000C8089 /* fridge.jpg */; };
+		E590597B2206942E000C8089 /* black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E590597A2206942E000C8089 /* black.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		E59059702206536F000C8089 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		E590597422065FF3000C8089 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E590597622066185000C8089 /* defaultphoto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultphoto.jpg; sourceTree = "<group>"; };
+		E590597822068FD4000C8089 /* fridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fridge.jpg; sourceTree = "<group>"; };
+		E590597A2206942E000C8089 /* black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = black.jpg; sourceTree = "<group>"; };
 		EBC387E7A6A8A8D9679CA705 /* Pods-FridgeFusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeFusion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,8 @@
 		32F57C4F2205560A0024E0BB /* FridgeFusion */ = {
 			isa = PBXGroup;
 			children = (
+				E590597A2206942E000C8089 /* black.jpg */,
+				E590597822068FD4000C8089 /* fridge.jpg */,
 				E590597622066185000C8089 /* defaultphoto.jpg */,
 				32F57C502205560A0024E0BB /* AppDelegate.swift */,
 				32F57C522205560A0024E0BB /* ViewController.swift */,
@@ -270,10 +276,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E590597922068FD4000C8089 /* fridge.jpg in Resources */,
 				32F57C5B2205560D0024E0BB /* LaunchScreen.storyboard in Resources */,
 				32F57C582205560D0024E0BB /* Assets.xcassets in Resources */,
 				E590597722066185000C8089 /* defaultphoto.jpg in Resources */,
 				32F57C562205560A0024E0BB /* Main.storyboard in Resources */,
+				E590597B2206942E000C8089 /* black.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
