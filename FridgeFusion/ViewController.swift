@@ -14,22 +14,41 @@ import CoreImage
 
 class ViewController: UITableViewController,
     UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-    AVCaptureVideoDataOutputSampleBufferDelegate
+    AVCaptureVideoDataOutputSampleBufferDelegate,
+    UIGestureRecognizerDelegate
 {
     
     let imagePickerController = UIImagePickerController()
     let imageChoiceSheet = UIAlertController()
     
+    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "setupCaptureSession")
+    
     var resultHistoryList = [Food]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupActionSheet()
+        swipeGestureRecognizer.delegate = self
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizer.Direction.left
+        swipeGestureRecognizer.numberOfTouchesRequired = 2
+        self.view.addGestureRecognizer(swipeGestureRecognizer)
+    }
+    
+    
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        print("here")
+        
+        guard let myView = swipeGestureRecognizer.view,
+            let otherView = otherGestureRecognizer.view else { return false }
+        
+        return gestureRecognizer == swipeGestureRecognizer &&
+            otherView.isDescendant(of: myView)
     }
     
     @IBAction func startCaptureSession(_ sender: Any) {
         setupCaptureSession()
     }
+    
     private func setupCaptureSession() {
         let captureSession = AVCaptureSession()
         
