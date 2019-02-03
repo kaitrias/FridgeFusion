@@ -20,8 +20,6 @@ class ViewController: UITableViewController,
     
     let imagePickerController = UIImagePickerController()
     let imageChoiceSheet = UIAlertController()
-        
-    var resultHistoryList = [Food]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

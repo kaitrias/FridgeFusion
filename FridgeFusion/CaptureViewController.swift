@@ -14,6 +14,7 @@ import CoreImage
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     let captureSession = AVCaptureSession()
     
+    var resultHistoryList = [Food]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,11 +81,14 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             if let item = results.first(where: {$0.identifier == "banana"}) {
                 if item.confidence > 0.80 {
                     print(item.identifier, item.confidence)
-                    let message: String = item.identifier + "found?"
+                    let message: String = item.identifier + " found?"
                     let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
                     
-                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: nil))
-                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default) {
+                        UIAlertAction in
+                        self.addFood(item: item.identifier)
+                    })
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
                     
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -92,5 +96,9 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         }
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+    }
+    
+    func addFood(item: String) {
+        self.resultHistoryList.append(Food(title: item))
     }
 }
