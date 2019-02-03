@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import AVKit
+import Vision
+import CoreImage
 
-class ViewController: UIViewController,
+
+class ViewController: UITableViewController,
     UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-UITableViewDataSource, UITableViewDelegate {
+    AVCaptureVideoDataOutputSampleBufferDelegate
+{
     
     let imagePickerController = UIImagePickerController()
     let imageChoiceSheet = UIAlertController()
@@ -27,32 +32,53 @@ UITableViewDataSource, UITableViewDelegate {
         setupActionSheet()
     }
     
+    @IBAction func startCaptureSession(_ sender: Any) {
+        setupCaptureSession()
+        
+    }
+    private func setupCaptureSession() {
+        print("here")
+        let captureSession = AVCaptureSession()
+        
+        
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
+        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+        captureSession.addInput(input)
+        
+        captureSession.startRunning()
+        
+        
+        //add camera to view
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        view.layer.addSublayer(previewLayer)
+        previewLayer.frame = view.frame
+        
+        let dataOutput = AVCaptureVideoDataOutput()
+        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
+        captureSession.addOutput(dataOutput)
+        
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        
+        guard let model = try? VNCoreMLModel(for: Resnet50().model) else { return }
+        
+        let request = VNCoreMLRequest(model: model) {
+            (finishedReq, err) in
+            guard let results = finishedReq.results as? [VNClassificationObservation] else { return }
+            if let item = results.first(where: {$0.identifier == "banana"}) {
+                if item.confidence > 0.80 {
+                    print(item.identifier, item.confidence)
+                }
+            }
+        }
+        
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+    }
+    
     private func setupActionSheet() {
-        self.imagePickerController.sourceType = .camera
-        self.present(self.imagePickerController, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultHistoryList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard indexPath.row < resultHistoryList.count else {
-            return UITableViewCell()
-        }
-        
-        guard let historyCell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? HistoryCell else {
-            return UITableViewCell()
-        }
-        
-        let result = resultHistoryList[indexPath.row]
-        
-        historyCell.titleLabel.text = result.title
-        return historyCell
     }
 
 }
