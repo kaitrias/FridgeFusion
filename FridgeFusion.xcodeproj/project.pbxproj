@@ -15,6 +15,8 @@
 		32F57C662205560D0024E0BB /* FridgeFusionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C652205560D0024E0BB /* FridgeFusionTests.swift */; };
 		32F57C712205560D0024E0BB /* FridgeFusionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C702205560D0024E0BB /* FridgeFusionUITests.swift */; };
 		32F57C812206BB580024E0BB /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C802206BB570024E0BB /* Resnet50.mlmodel */; };
+		32F57C832206E1350024E0BB /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F57C822206E1340024E0BB /* CaptureViewController.swift */; };
+		32F57C852206ED810024E0BB /* fridgefusion.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F57C842206ED800024E0BB /* fridgefusion.png */; };
 		B38CEDE80258503E335A28B1 /* Pods_FridgeFusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */; };
 		E590596F220650ED000C8089 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = E590596E220650ED000C8089 /* Food.swift */; };
 		E59059712206536F000C8089 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59059702206536F000C8089 /* HistoryCell.swift */; };
@@ -56,6 +58,8 @@
 		32F57C702205560D0024E0BB /* FridgeFusionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeFusionUITests.swift; sourceTree = "<group>"; };
 		32F57C722205560D0024E0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32F57C802206BB570024E0BB /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		32F57C822206E1340024E0BB /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		32F57C842206ED800024E0BB /* fridgefusion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridgefusion.png; sourceTree = "<group>"; };
 		419B0436E68471ECE9C76649 /* Pods-FridgeFusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeFusion.release.xcconfig"; path = "Pods/Target Support Files/Pods-FridgeFusion/Pods-FridgeFusion.release.xcconfig"; sourceTree = "<group>"; };
 		B8A7E15A51B53F6DA0862FB3 /* Pods_FridgeFusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeFusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E590596E220650ED000C8089 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
@@ -121,14 +125,16 @@
 				32F57C802206BB570024E0BB /* Resnet50.mlmodel */,
 				E590597A2206942E000C8089 /* black.jpg */,
 				E590597822068FD4000C8089 /* fridge.jpg */,
+				32F57C842206ED800024E0BB /* fridgefusion.png */,
 				E590597622066185000C8089 /* defaultphoto.jpg */,
 				32F57C502205560A0024E0BB /* AppDelegate.swift */,
 				32F57C522205560A0024E0BB /* ViewController.swift */,
+				32F57C822206E1340024E0BB /* CaptureViewController.swift */,
 				E590596E220650ED000C8089 /* Food.swift */,
 				E59059702206536F000C8089 /* HistoryCell.swift */,
 				32F57C542205560A0024E0BB /* Main.storyboard */,
-				32F57C572205560D0024E0BB /* Assets.xcassets */,
 				32F57C592205560D0024E0BB /* LaunchScreen.storyboard */,
+				32F57C572205560D0024E0BB /* Assets.xcassets */,
 				32F57C5C2205560D0024E0BB /* Info.plist */,
 				E590597422065FF3000C8089 /* Recipe.swift */,
 			);
@@ -283,6 +289,7 @@
 				E590597922068FD4000C8089 /* fridge.jpg in Resources */,
 				32F57C5B2205560D0024E0BB /* LaunchScreen.storyboard in Resources */,
 				32F57C582205560D0024E0BB /* Assets.xcassets in Resources */,
+				32F57C852206ED810024E0BB /* fridgefusion.png in Resources */,
 				E590597722066185000C8089 /* defaultphoto.jpg in Resources */,
 				32F57C562205560A0024E0BB /* Main.storyboard in Resources */,
 				E590597B2206942E000C8089 /* black.jpg in Resources */,
@@ -363,6 +370,7 @@
 			files = (
 				32F57C532205560A0024E0BB /* ViewController.swift in Sources */,
 				32F57C512205560A0024E0BB /* AppDelegate.swift in Sources */,
+				32F57C832206E1350024E0BB /* CaptureViewController.swift in Sources */,
 				E59059712206536F000C8089 /* HistoryCell.swift in Sources */,
 				E590596F220650ED000C8089 /* Food.swift in Sources */,
 				32F57C812206BB580024E0BB /* Resnet50.mlmodel in Sources */,

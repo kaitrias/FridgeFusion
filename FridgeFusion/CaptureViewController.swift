@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  CaptureViewController.swift
 //  FridgeFusion
 //
-//  Created by Kaito Trias on 2/1/19.
+//  Created by Kaito Trias on 2/3/19.
 //  Copyright © 2019 Kaito Trias. All rights reserved.
 //
 
@@ -11,36 +11,15 @@ import AVKit
 import Vision
 import CoreImage
 
-
-class ViewController: UITableViewController,
-    UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-    AVCaptureVideoDataOutputSampleBufferDelegate,
-    UIGestureRecognizerDelegate
-{
-    
-    let imagePickerController = UIImagePickerController()
-    let imageChoiceSheet = UIAlertController()
-        
-    var resultHistoryList = [Food]()
+class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(_:)))
-        swipeGestureRecognizer.direction = .left
-        self.view.addGestureRecognizer(swipeGestureRecognizer)
-    }
-    
-    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
-        guard let captureViewController = storyboard?.instantiateViewController(withIdentifier: "CaptureViewController") as? CaptureViewController else {
-            return
-        }
-        
-        present(captureViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func startCaptureSession(_ sender: Any) {
         setupCaptureSession()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func setupCaptureSession() {
@@ -77,22 +56,10 @@ class ViewController: UITableViewController,
             if let item = results.first(where: {$0.identifier == "banana"}) {
                 if item.confidence > 0.80 {
                     print(item.identifier, item.confidence)
-                    let message: String = item.identifier + "found?"
-                    let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: nil))
-                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
-                    
-                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
         
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
-    
-    private func setupActionSheet() {
-    }
-
 }
-
