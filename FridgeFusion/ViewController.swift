@@ -31,16 +31,26 @@ class ViewController: UITableViewController,
         self.view.addGestureRecognizer(swipeGestureRecognizer)
     }
     
-    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
+    func presentCaptureViewController() {
+        let transition = CATransition.init()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromRight
+        self.view.window!.layer.add(transition, forKey: nil)
+        
         guard let captureViewController = storyboard?.instantiateViewController(withIdentifier: "CaptureViewController") as? CaptureViewController else {
             return
         }
-        
-        present(captureViewController, animated: true, completion: nil)
+        present(captureViewController, animated: false, completion: nil)
+    }
+    
+    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
+        presentCaptureViewController()
     }
     
     @IBAction func startCaptureSession(_ sender: Any) {
-        setupCaptureSession()
+        presentCaptureViewController()
     }
     
     private func setupCaptureSession() {
