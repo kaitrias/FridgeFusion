@@ -12,10 +12,33 @@ import Vision
 import CoreImage
 
 class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+    let captureSession = AVCaptureSession()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCaptureSession()
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture(_:)))
+        swipeGestureRecognizer.direction = .right
+        self.view.addGestureRecognizer(swipeGestureRecognizer)
+    }
+    
+    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
+        let transition = CATransition.init()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.view.window!.layer.add(transition, forKey: nil)
+        
+        if captureSession.isRunning {
+            DispatchQueue.global().async {
+                self.captureSession.stopRunning()
+            }
+        }
+        
+        self.dismiss(animated: false, completion: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +68,7 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        print("here still")
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         
@@ -56,6 +80,13 @@ class CaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             if let item = results.first(where: {$0.identifier == "banana"}) {
                 if item.confidence > 0.80 {
                     print(item.identifier, item.confidence)
+                    let message: String = item.identifier + "found?"
+                    let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
