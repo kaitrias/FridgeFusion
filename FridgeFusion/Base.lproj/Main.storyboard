@@ -55,10 +55,15 @@
                                 <segue destination="iMI-hr-gZQ" kind="show" id="iMo-LL-BqV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="s5m-od-W8z"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="s5m-od-W8z">
+                            <connections>
+                                <action selector="launchCamera:" destination="LU2-J8-f7z" id="h1F-Vj-pbL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dow-Fz-weJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LU2-J8-f7z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="288.80000000000001" y="126.38680659670166"/>
         </scene>
