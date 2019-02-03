@@ -22,22 +22,15 @@ class ViewController: UITableViewController,
     
     var resultHistoryList = [Food]()
     
-    @IBAction func launchCamera(_ sender: Any) {
-        present(imageChoiceSheet, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupActionSheet()
     }
     
     @IBAction func startCaptureSession(_ sender: Any) {
         setupCaptureSession()
-        
     }
     private func setupCaptureSession() {
-        print("here")
         let captureSession = AVCaptureSession()
         
         
@@ -71,6 +64,13 @@ class ViewController: UITableViewController,
             if let item = results.first(where: {$0.identifier == "banana"}) {
                 if item.confidence > 0.80 {
                     print(item.identifier, item.confidence)
+                    let message: String = item.identifier + "found?"
+                    let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
