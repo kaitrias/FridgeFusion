@@ -22,16 +22,14 @@ class ViewController: UITableViewController,
     
     var resultHistoryList = [Food]()
     
-    @IBAction func startCaptureSession(_ sender: Any) {
-        setupCaptureSession()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActionSheet()
-        setupTableView()
     }
     
+    @IBAction func startCaptureSession(_ sender: Any) {
+        setupCaptureSession()
+    }
     private func setupCaptureSession() {
         let captureSession = AVCaptureSession()
         
@@ -66,14 +64,11 @@ class ViewController: UITableViewController,
             if let item = results.first(where: {$0.identifier == "banana"}) {
                 if item.confidence > 0.80 {
                     print(item.identifier, item.confidence)
-                    let message: String = item.identifier + " found?"
+                    let message: String = item.identifier + "found?"
                     let alert = UIAlertController(title: message, message: nil, preferredStyle: UIAlertController.Style.alert)
                     
-                    alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default) {
-                        UIAlertAction in
-                        self.addFood(item: item.identifier)
-                    })
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
                     
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -83,46 +78,8 @@ class ViewController: UITableViewController,
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
     
-    func addFood(item: String) {
-        self.resultHistoryList.append(Food(title: item))
-    }
-    
-    private func setupTableView() {
-        tableView.allowsSelection = false
-        
-        // Again, standard.
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        // This is how to get rid of those empty cells at the bottom.
-        tableView.tableFooterView = UIView()
-    }
-    
     private func setupActionSheet() {
     }
-    
-/*    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultHistoryList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard indexPath.row < resultHistoryList.count else {
-            return UITableViewCell()
-        }
-        
-        guard let historyCell = tableView.dequeueReusableCell(withIdentifier: "historyCell") as? HistoryCell else {
-            return UITableViewCell()
-        }
-        
-        // Get the appropriate Result object from our list.
-        let result = resultHistoryList[indexPath.row]
-        
-        // Now that we've verified, we can use the historyCell.
-        historyCell.titleLabel.text = result.title
-        
-        return historyCell
-    }*/
 
 }
 
